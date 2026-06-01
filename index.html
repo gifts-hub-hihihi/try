@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trouve ton cadeau</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: radial-gradient(circle at top, #4b1d5c, #140018 60%, #050006);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    .card {
+      max-width: 850px;
+      padding: 40px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 60px rgba(255, 255, 255, 0.12);
+      animation: appear 1.2s ease both;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 6rem);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: clamp(1.2rem, 3vw, 1.7rem);
+      line-height: 1.6;
+    }
+
+    .down {
+      margin-top: 40px;
+      font-size: 2rem;
+      animation: bounce 1.5s infinite;
+    }
+
+    .progress {
+      width: 100%;
+      height: 24px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 30px 0;
+    }
+
+    .bar {
+      height: 100%;
+      width: 97%;
+      background: linear-gradient(90deg, #ffcc70, #ff8177, #cf556c);
+      border-radius: 999px;
+      animation: load 3s ease;
+    }
+
+    .stats {
+      display: grid;
+      gap: 18px;
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .stat {
+      padding: 18px 24px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.1);
+      font-size: 1.3rem;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 18px 32px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      color: #3b123f;
+      background: #ffdf8e;
+      box-shadow: 0 0 35px rgba(255, 223, 142, 0.5);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.06);
+      box-shadow: 0 0 50px rgba(255, 223, 142, 0.8);
+    }
+
+    .final img {
+      width: min(90vw, 700px);
+      border-radius: 30px;
+      margin: 30px 0;
+      box-shadow: 0 0 80px rgba(255,255,255,0.35);
+    }
+
+    .warning {
+      color: #ffdf8e;
+      text-shadow: 0 0 20px rgba(255, 223, 142, 0.7);
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      opacity: 0.8;
+      animation: snow linear infinite;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(15px); }
+    }
+
+    @keyframes load {
+      from { width: 0; }
+      to { width: 97%; }
+    }
+
+    @keyframes snow {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <audio id="music" loop>
+    <source src="musique.mp3" type="audio/mpeg">
+  </audio>
+
+  <section>
+    <div class="card">
+      <h1>🎁 Tu as trouvé le site secret</h1>
+      <p>Félicitations. Peu de gens seraient arrivés jusqu’ici.</p>
+      <p>Mais la vraie question est...</p>
+      <div class="down">↓</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h2>Es-tu prête à découvrir la vérité ?</h2>
+      <p>Nos équipes ont analysé ton profil avec une technologie très sérieuse.</p>
+      <p>Enfin... presque sérieuse.</p>
+      <div class="down">↓</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h2>Analyse ADN en cours...</h2>
+      <div class="progress">
+        <div class="bar"></div>
+      </div>
+      <p>Recherche de traces de magie, de gâteau et de comportement suspect...</p>
+      <div class="down">↓</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h2>Résultats intermédiaires</h2>
+      <div class="stats">
+        <div class="stat">🎂 Capacité à mériter du gâteau : 100%</div>
+        <div class="stat">💅 Niveau de princesse : 94%</div>
+        <div class="stat">😴 Talent pour dormir : 89%</div>
+        <div class="stat">🦌 Probabilité d’être un renne : 97,8%</div>
+      </div>
+      <div class="down">↓</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h2 class="warning">⚠️ Résultat inattendu détecté</h2>
+      <p>Les données sont formelles.</p>
+      <p>Il ne reste plus qu’à révéler ton identité secrète.</p>
+      <button onclick="startMusic()">🎵 Révéler la vérité</button>
+      <div class="down">↓</div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="card">
+      <h2>Identité confirmée</h2>
+      <img src="renne.jpg" alt="Photo renne">
+      <h1>Joyeux anniversaire ❤️</h1>
+      <p>Officiellement certifiée renne d’exception.</p>
+    </div>
+  </section>
+
+  <script>
+    function startMusic() {
+      const music = document.getElementById("music");
+      music.play();
+      alert("Musique activée. Continue à descendre...");
+    }
+
+    function createSnowflake() {
+      const snowflake = document.createElement("div");
+      snowflake.classList.add("snowflake");
+      snowflake.innerHTML = "❄";
+      snowflake.style.left = Math.random() * 100 + "vw";
+      snowflake.style.fontSize = Math.random() * 20 + 10 + "px";
+      snowflake.style.animationDuration = Math.random() * 5 + 5 + "s";
+      document.body.appendChild(snowflake);
+
+      setTimeout(() => {
+        snowflake.remove();
+      }, 10000);
+    }
+
+    setInterval(createSnowflake, 250);
+  </script>
+
+</body>
+</html>
